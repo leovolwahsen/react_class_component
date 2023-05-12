@@ -1,21 +1,22 @@
-import React, {useState} from 'react'
+import React from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 export default class App extends React.Component {
-  
-  //const [goOut, setGoOut] = React.useState("Yes")
 
   state = {
-    goOut: "Yes"
+    improveReact : "Yes"
   }
 
-  toggleGoOut() {
-    setGoOut(prevState => {
-      return prevState === "Yes" ? "No" : "Yes"
+  toggleImproveReact = () => {
+    this.setState(prevState => {
+      return {
+        improveReact : prevState.improveReact  === "Yes" ? "No": "Yes"
+      }
     })
   }
+
     render() {
       return ( 
         <div className='state'>
@@ -26,9 +27,9 @@ export default class App extends React.Component {
           <a href="https://react.dev" target="_blank">
             <img src={reactLogo} className="logo react" alt="React logo" />
           </a>
-          <h2 className='state--title'>Should I go out tonight?</h2>
-          <div className='state--value' onClick={this.toggleGoOut}>
-             <h2>{this.state.goOut}</h2>
+          <h2 className='state--title'>Should I learn some more React tonight?</h2>
+          <div className='state--value' onClick={this.toggleImproveReact}>
+             <button className='state--answer'>{this.state.improveReact}</button>
           </div>
       </div>
     )
